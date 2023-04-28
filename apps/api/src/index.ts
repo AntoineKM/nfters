@@ -4,7 +4,7 @@ import { AddressInfo } from "net";
 import Log from "./utils/log";
 
 const app = express();
-const port: number = process.env.PORT ? parseInt(process.env.PORT) : 8000;
+const port: number = process.env.PORT ? parseInt(process.env.PORT, 10) : 8000;
 const host: string =
   process.env.NODE_ENV === "production" ? "0.0.0.0" : "127.0.0.1";
 
