@@ -14,7 +14,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore"
   },
   "devDependencies": {
-    "antoine-tsconfig": "^1.0.1",
+    "antoine-tsconfig": "^1.0.2",
     "eslint": "^8.39.0",
     "eslint-config-antoine": "^1.0.3",
     "prettier": "^2.7.1",
