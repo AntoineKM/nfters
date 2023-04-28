@@ -2801,10 +2801,10 @@ ansi-styles@^5.0.0:
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-5.2.0.tgz#07449690ad45777d1924ac2abb2fc8895dba836b"
   integrity sha512-Cxwpt2SfTzTtXcfOlzGEee8O+c+MmUgGrNiBcXnuWxuFJHe6a5Hz7qwhwe5OgaSYI0IJvkLqWX1ASG+cJOkEiA==
 
-antoine-tsconfig@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/antoine-tsconfig/-/antoine-tsconfig-1.0.2.tgz#ba33aca50d76f84cd35dcc264671e18ee9975c7e"
-  integrity sha512-E5sZh57jvl/ueO+wngb+Ch6Ijeeqq8+qNdbVhz6QcwqACE3BzI+rvNG+v+E3DrQKbI7ac6IkyUfUUzIV5wULSQ==
+antoine-tsconfig@^1.0.2, antoine-tsconfig@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/antoine-tsconfig/-/antoine-tsconfig-1.0.4.tgz#17ce5e0d5450e990ae17693ed8372b71b3b49db5"
+  integrity sha512-8wuK/98zNU3wkR2YqEyZzeRr9QoEsli66aVqsgkudw9vXUbqP1t4o2dtx0sR8LfZ4eoeYOA21AIG051KgzLt4Q==
 
 any-promise@^1.0.0:
   version "1.3.0"
