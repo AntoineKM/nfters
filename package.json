@@ -7,10 +7,14 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore"
   },
   "devDependencies": {
+    "eslint": "^8.39.0",
+    "eslint-config-antoine": "^1.0.3",
     "prettier": "^2.7.1",
     "turbo": "latest"
   },
