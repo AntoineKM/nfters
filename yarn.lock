@@ -3047,11 +3047,6 @@ babel-plugin-polyfill-regenerator@^0.4.1:
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.3.3"
 
-babel-plugin-react-native-web@^0.18.4:
-  version "0.18.10"
-  resolved "https://registry.yarnpkg.com/babel-plugin-react-native-web/-/babel-plugin-react-native-web-0.18.10.tgz#028c349d1c4c929f86dc757a4e724d3e651d3424"
-  integrity sha512-2UiwS6G7XKJvpo0X5OFkzGjHGFuNx9J+DgEG8TEmm+X5S0z6EB59W11RDEZghdKzsQzVbs1jB+2VHBuVgjMTiw==
-
 babel-plugin-react-native-web@~0.18.10:
   version "0.18.12"
   resolved "https://registry.yarnpkg.com/babel-plugin-react-native-web/-/babel-plugin-react-native-web-0.18.12.tgz#3e9764484492ea612a16b40135b07c2d05b7969d"
@@ -7694,19 +7689,6 @@ react-native-gradle-plugin@^0.71.17:
   version "0.71.17"
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.71.17.tgz#cf780a27270f0a32dca8184eff91555d7627dd00"
   integrity sha512-OXXYgpISEqERwjSlaCiaQY6cTY5CH6j73gdkWpK0hedxtiWMWgH+i5TOi4hIGYitm9kQBeyDu+wim9fA8ROFJA==
-
-react-native-web@^0.18.4:
-  version "0.18.10"
-  resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.18.10.tgz#fb4db047f4be7f9cf35f37ec8d52f7d1c450600f"
-  integrity sha512-YV2gtZa1n7ulTGp+HcxH+KsAtaDPBI/dKd9oOQS31zyFHURjObLUVkKnGjkmlYAUReWfvmlU64GzyNwoZF9/tA==
-  dependencies:
-    "@babel/runtime" "^7.18.6"
-    create-react-class "^15.7.0"
-    fbjs "^3.0.4"
-    inline-style-prefixer "^6.0.1"
-    normalize-css-color "^1.0.2"
-    postcss-value-parser "^4.2.0"
-    styleq "^0.1.2"
 
 react-native-web@~0.18.11:
   version "0.18.12"
