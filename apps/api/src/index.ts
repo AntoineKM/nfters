@@ -1,14 +1,20 @@
-import express from 'express'
-import Log from './utils/log'
+import express from "express";
+import { AddressInfo } from "net";
 
-const app = express()
-const port = 3000
+import Log from "./utils/log";
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+const app = express();
+const port: number = process.env.PORT ? parseInt(process.env.PORT) : 8000;
+const host: string =
+  process.env.NODE_ENV === "production" ? "0.0.0.0" : "127.0.0.1";
 
-const server = app.listen(3000, () => {
-  const { address, port } = server.address();
-  Log.ready(`started server on ${address}:${port}, url: http://${address}:${port}`);
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+const server = app.listen(port, host, () => {
+  const { address, port } = server.address() as AddressInfo;
+  Log.ready(
+    `started server on ${address}:${port}, url: http://${address}:${port}`
+  );
 });
