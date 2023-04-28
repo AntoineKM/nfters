@@ -1,3 +1,5 @@
 {
-  "extends": "tsconfig/base.json",
+  "extends": "antoine-tsconfig/node.json",
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "dist/"]
 }
