@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function Native() {
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Native</Text>
-      <StatusBar style="auto" />
+      <Text style={styles.header}>{"Native"}</Text>
+      <StatusBar style={"auto"} />
     </View>
   );
 }
