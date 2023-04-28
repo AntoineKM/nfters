@@ -8,7 +8,7 @@ const port: number = process.env.PORT ? parseInt(process.env.PORT, 10) : 8000;
 const host: string =
   process.env.NODE_ENV === "production" ? "0.0.0.0" : "127.0.0.1";
 
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   res.send("Hello World!");
 });
 
