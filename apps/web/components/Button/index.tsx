@@ -26,7 +26,6 @@ const Container = styled.button<ButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
   border-radius: 99999px;
   color: ${({ theme }) => theme.colors.text.white};
   font-weight: ${({ theme }) => theme.text.weight.bold};
@@ -86,6 +85,17 @@ const Container = styled.button<ButtonProps>`
       case "medium":
       default:
         return "16px";
+    }
+  }};
+  height: ${({ size }) => {
+    switch (size) {
+      case "small":
+        return "35px";
+      case "large":
+        return "65px";
+      case "medium":
+      default:
+        return "50px";
     }
   }};
 
