@@ -26,16 +26,15 @@ const Container = styled.button<ButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
   height: 50px;
   border-radius: 99999px;
   color: ${({ theme }) => theme.colors.text.white};
-  font-size: ${({ theme }) => theme.text.size.normal};
   font-weight: ${({ theme }) => theme.text.weight.bold};
   font-family: "DM Sans", sans-serif;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   white-space: nowrap;
+  letter-spacing: 0.05rem;
   padding: ${({ size }) => {
     switch (size) {
       case "small":
@@ -76,6 +75,17 @@ const Container = styled.button<ButtonProps>`
       case "primary":
       default:
         return "none";
+    }
+  }};
+  font-size: ${({ size }) => {
+    switch (size) {
+      case "small":
+        return "14px";
+      case "large":
+        return "20px";
+      case "medium":
+      default:
+        return "16px";
     }
   }};
 

@@ -44,6 +44,7 @@ const Container = styled.header`
   max-width: ${({ theme }) => theme.breakpoint.laptop};
   width: 100%;
   margin: 0 auto;
+  padding: 0 15px;
 `;
 
 const Menu = styled.nav`

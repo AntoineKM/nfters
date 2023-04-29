@@ -132,6 +132,10 @@ const GlobalStyle = createGlobalStyle`
       border-spacing: 0;
   }
   
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+  
   /* main */
 
   html,

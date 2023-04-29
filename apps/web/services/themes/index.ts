@@ -29,6 +29,7 @@ export const lightTheme: Theme = {
       large: "24px",
       medium: "20px",
       normal: "16px",
+      small: "12px",
     },
     weight: {
       thin: 100,

@@ -27,6 +27,7 @@ export type Theme = {
       large: string;
       medium: string;
       normal: string;
+      small: string;
     };
     weight: {
       thin: number;
