@@ -15,7 +15,7 @@ export const lightTheme: Theme = {
       primary: "rgb(61, 0, 183)",
       secondary: "#F0F0F0",
       lightest: "rgb(255, 255, 255)",
-      lighter: "#F0F0F0",
+      lighter: "rgba(217, 224, 236, 0.2)",
       light: "#D3D3D3",
     },
     border: {
@@ -29,7 +29,8 @@ export const lightTheme: Theme = {
       large: "24px",
       medium: "20px",
       normal: "16px",
-      small: "12px",
+      small: "14px",
+      tiny: "12px",
     },
     weight: {
       thin: 100,
