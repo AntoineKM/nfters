@@ -33,30 +33,30 @@ const Hero: React.FC = () => {
         </Content>
         <Cards>
           <Card
-            src={"/static/images/hero/card-1.jpg"}
+            src={"/static/images/thumbnails/1.jpg"}
             title={"Abstr Gradient NFT"}
             owner={{
-              avatar: "/static/images/hero/avatar.png",
+              avatar: "/static/images/avatars/1.png",
               name: "Arkhan17",
             }}
             bid={0.25}
             timeLeft={"12h 43m 42s"}
           />
           <Card
-            src={"/static/images/hero/card-2.jpg"}
+            src={"/static/images/thumbnails/2.jpg"}
             title={"Abstr Gradient NFT"}
             owner={{
-              avatar: "/static/images/hero/avatar.png",
+              avatar: "/static/images/avatars/1.png",
               name: "Arkhan17",
             }}
             bid={0.25}
             timeLeft={"12h 43m 42s"}
           />
           <Card
-            src={"/static/images/hero/card-3.jpg"}
+            src={"/static/images/thumbnails/3.jpg"}
             title={"Abstr Gradient NFT"}
             owner={{
-              avatar: "/static/images/hero/avatar.png",
+              avatar: "/static/images/avatars/1.png",
               name: "Arkhan17",
             }}
             bid={0.25}
