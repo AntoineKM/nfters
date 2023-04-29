@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Amazing Collection",
+    "owner": {
+      "name": "Arkhan",
+      "avatar": "/static/images/avatars/1.png"
+    },
+    "count": 54,
+    "thumbnails": [
+      "/static/images/thumbnails/4.jpg",
+      "/static/images/thumbnails/2.jpg",
+      "/static/images/thumbnails/5.jpg",
+      "/static/images/thumbnails/6.jpg"
+    ]
+  },
+  {
+    "title": "Amazing Collection",
+    "owner": {
+      "name": "Arkhan",
+      "avatar": "/static/images/avatars/1.png"
+    },
+    "count": 54,
+    "thumbnails": [
+      "/static/images/thumbnails/1.jpg",
+      "/static/images/thumbnails/5.jpg",
+      "/static/images/thumbnails/2.jpg",
+      "/static/images/thumbnails/3.jpg"
+    ]
+  },
+  {
+    "title": "Amazing Collection",
+    "owner": {
+      "name": "Arkhan",
+      "avatar": "/static/images/avatars/1.png"
+    },
+    "count": 54,
+    "thumbnails": [
+      "/static/images/thumbnails/3.jpg",
+      "/static/images/thumbnails/1.jpg",
+      "/static/images/thumbnails/6.jpg",
+      "/static/images/thumbnails/5.jpg"
+    ]
+  }
+]
