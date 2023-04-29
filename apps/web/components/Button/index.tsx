@@ -6,8 +6,8 @@ export type ButtonProps = {
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const defaultProps = {
-  variant: "primary",
-  size: "medium",
+  variant: "primary" as const,
+  size: "medium" as const,
 };
 
 const Button: React.FC<ButtonProps> = ({
