@@ -177,7 +177,26 @@ const GlobalStyle = createGlobalStyle`
     :hover {
         filter: brightness(0.8);
     }
-}
+  }
+
+  p,
+  a, 
+  span, 
+  input, 
+  button, 
+  textarea, 
+  select, 
+  option, 
+  label, 
+  li, 
+  h1, 
+  h2, 
+  h3, 
+  h4, 
+  h5, 
+  h6 {  
+    letter-spacing: 0.05rem;
+  }
 `;
 
 export default GlobalStyle;

@@ -33,7 +33,6 @@ const Container = styled.button<ButtonProps>`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   white-space: nowrap;
-  letter-spacing: 0.05rem;
   max-height: 100%;
   padding: ${({ size }) => {
     switch (size) {
