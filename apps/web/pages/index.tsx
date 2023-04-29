@@ -1,9 +1,14 @@
-import styles from "../styles/index.module.css";
+import Head from "next/head";
 
-export default function Web() {
+import Header from "../components/Header";
+
+export default function Home() {
   return (
-    <div className={styles.container}>
-      <h1>{"Web"}</h1>
-    </div>
+    <>
+      <Head>
+        <title>{"nfters"}</title>
+      </Head>
+      <Header />
+    </>
   );
 }
