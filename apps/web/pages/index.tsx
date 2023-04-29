@@ -4,6 +4,7 @@ import Amaze from "../components/Amaze";
 import Collection from "../components/Collection";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
+import SignUp from "../components/SignUp";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Hero />
       <Amaze />
       <Collection />
+      <SignUp />
     </>
   );
 }
