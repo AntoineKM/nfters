@@ -74,7 +74,6 @@ const Footer: React.FC = () => {
 
 const Wrapper = styled.footer`
   padding: 32px 0;
-  background-color: ${({ theme }) => theme.colors.background.lighter};
 `;
 
 const Container = styled.div`
