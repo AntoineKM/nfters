@@ -37,7 +37,7 @@ const OtherNFTs: React.FC = () => {
 };
 
 const Wrapper = styled.section`
-  padding: 96px 0;
+  padding: 32px 0 64px;
   background-color: ${({ theme }) => theme.colors.background.lighter};
 `;
 
@@ -54,6 +54,7 @@ const Container = styled.div`
 
 const Title = styled.h2`
   font-size: ${({ theme }) => theme.text.size.title};
+  width: 100%;
 `;
 
 const Cards = styled.div`
