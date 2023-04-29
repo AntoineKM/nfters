@@ -21,7 +21,12 @@ const Navbar: React.FC = () => {
           </Nav>
         </Menu>
         <Interact>
-          <Input type={"text"} placeholder={"Search"} suffix={<SearchIcon />} />
+          <Input
+            type={"text"}
+            placeholder={"Search"}
+            suffix={<SearchIcon />}
+            width={300}
+          />
           <Button>{"Upload"}</Button>
           <Button variant={"secondary"}>{"Connect Wallet"}</Button>
         </Interact>
