@@ -24,7 +24,7 @@ const Collection: React.FC = () => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   padding: 32px 0 96px;
   background-color: ${({ theme }) => theme.colors.background.lighter};
 `;

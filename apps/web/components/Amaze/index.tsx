@@ -37,7 +37,7 @@ const Amaze: React.FC = () => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   padding: 96px 0;
   background-color: ${({ theme }) => theme.colors.background.lighter};
 `;

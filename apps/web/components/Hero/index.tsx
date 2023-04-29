@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   padding: 64px 0 96px;
 `;
 
