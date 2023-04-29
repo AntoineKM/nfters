@@ -6,70 +6,79 @@ import LiveIcon from "../Icons/Live";
 
 const Hero: React.FC = () => {
   return (
-    <Container>
-      <Content>
-        <Title>{"Discover, and collect Digital Art NFTs"}</Title>
-        <Description>
-          {
-            "Digital marketplace for crypto collectibles and non-fungible tokens (NFTs). Buy, Sell, and discover exclusive digital assets."
-          }
-        </Description>
-        <Button size={"large"}>{"Explore Now"}</Button>
-        <Achievements>
-          <Achievement>
-            {"98k+"}
-            <span>{"Artwork"}</span>
-          </Achievement>
-          <Achievement>
-            {"12k+"}
-            <span>{"Auction"}</span>
-          </Achievement>
-          <Achievement>
-            {"15k+"}
-            <span>{"Artist"}</span>
-          </Achievement>
-        </Achievements>
-      </Content>
-      <Cards>
-        <Card
-          src={"/static/images/hero/card-1.jpg"}
-          title={"Abstr Gradient NFT"}
-          owner={{
-            avatar: "/static/images/hero/avatar.png",
-            name: "Arkhan17",
-          }}
-          bid={0.25}
-          timeLeft={"12h 43m 42s"}
-        />
-        <Card
-          src={"/static/images/hero/card-2.jpg"}
-          title={"Abstr Gradient NFT"}
-          owner={{
-            avatar: "/static/images/hero/avatar.png",
-            name: "Arkhan17",
-          }}
-          bid={0.25}
-          timeLeft={"12h 43m 42s"}
-        />
-        <Card
-          src={"/static/images/hero/card-3.jpg"}
-          title={"Abstr Gradient NFT"}
-          owner={{
-            avatar: "/static/images/hero/avatar.png",
-            name: "Arkhan17",
-          }}
-          bid={0.25}
-          timeLeft={"12h 43m 42s"}
-        />
-        <Icon />
-      </Cards>
-    </Container>
+    <Wrapper>
+      <Container>
+        <Content>
+          <Title>{"Discover, and collect Digital Art NFTs"}</Title>
+          <Description>
+            {
+              "Digital marketplace for crypto collectibles and non-fungible tokens (NFTs). Buy, Sell, and discover exclusive digital assets."
+            }
+          </Description>
+          <Button size={"large"}>{"Explore Now"}</Button>
+          <Achievements>
+            <Achievement>
+              {"98k+"}
+              <span>{"Artwork"}</span>
+            </Achievement>
+            <Achievement>
+              {"12k+"}
+              <span>{"Auction"}</span>
+            </Achievement>
+            <Achievement>
+              {"15k+"}
+              <span>{"Artist"}</span>
+            </Achievement>
+          </Achievements>
+        </Content>
+        <Cards>
+          <Card
+            src={"/static/images/hero/card-1.jpg"}
+            title={"Abstr Gradient NFT"}
+            owner={{
+              avatar: "/static/images/hero/avatar.png",
+              name: "Arkhan17",
+            }}
+            bid={0.25}
+            timeLeft={"12h 43m 42s"}
+          />
+          <Card
+            src={"/static/images/hero/card-2.jpg"}
+            title={"Abstr Gradient NFT"}
+            owner={{
+              avatar: "/static/images/hero/avatar.png",
+              name: "Arkhan17",
+            }}
+            bid={0.25}
+            timeLeft={"12h 43m 42s"}
+          />
+          <Card
+            src={"/static/images/hero/card-3.jpg"}
+            title={"Abstr Gradient NFT"}
+            owner={{
+              avatar: "/static/images/hero/avatar.png",
+              name: "Arkhan17",
+            }}
+            bid={0.25}
+            timeLeft={"12h 43m 42s"}
+          />
+          <Icon />
+        </Cards>
+      </Container>
+    </Wrapper>
   );
 };
 
-const Container = styled.section`
-  display: flex;
+const Wrapper = styled.div`
   padding: 64px 0 96px;
+`;
+
+const Container = styled.div`
+  max-width: ${({ theme }) => theme.breakpoint.laptop};
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
 `;
 
 const Content = styled.div`

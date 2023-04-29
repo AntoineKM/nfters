@@ -37,7 +37,7 @@ const Card: React.FC<CardProps> = ({
           </RowValue>
         </Row>
         <Row>
-          <RowLabel>{"Current Bid"}</RowLabel>
+          <RowLabel>{"Ends in"}</RowLabel>
           <RowValue>{timeLeft}</RowValue>
         </Row>
       </Content>
@@ -109,7 +109,7 @@ const Row = styled.div`
 `;
 
 const RowLabel = styled.span`
-  font-size: ${({ theme }) => theme.text.size.small};
+  font-size: ${({ theme }) => theme.text.size.tiny};
   font-weight: ${({ theme }) => theme.text.weight.medium};
 `;
 
