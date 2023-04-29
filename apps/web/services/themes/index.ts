@@ -13,7 +13,7 @@ export const lightTheme: Theme = {
     },
     background: {
       primary: "rgb(61, 0, 183)",
-      secondary: "#F0F0F0",
+      secondary: "rgb(38, 57, 237)",
       lightest: "rgb(255, 255, 255)",
       lighter: "rgba(217, 224, 236, 0.2)",
       light: "#D3D3D3",
