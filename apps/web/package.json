@@ -11,10 +11,12 @@
   "dependencies": {
     "@fontsource/dm-sans": "^4.5.9",
     "dayjs": "^1.11.7",
+    "ethers": "^5",
     "next": "latest",
     "react": "18.2",
     "react-dom": "18.1",
-    "styled-components": "^5.3.10"
+    "styled-components": "^5.3.10",
+    "wagmi": "^0.12.12"
   },
   "devDependencies": {
     "@types/node": "^18.11.5",
