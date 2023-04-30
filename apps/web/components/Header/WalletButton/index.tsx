@@ -10,7 +10,7 @@ import {
 } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
 
-import { formatAdress, reduceString } from "../../../utils/layout";
+import { formatAdress, formatBalance } from "../../../utils/layout";
 import Button from "../../Button";
 
 const WalletButton: React.FC = () => {
@@ -26,6 +26,7 @@ const WalletButton: React.FC = () => {
   });
   const { chain } = useNetwork();
   const { switchNetwork } = useSwitchNetwork();
+  const { connectors } = useConnect();
 
   const handleClick = () => {
     if (isConnected) {
@@ -35,7 +36,11 @@ const WalletButton: React.FC = () => {
         disconnect();
       }
     } else {
-      connect();
+      if (connectors.length === 0) {
+        window.open("https://metamask.io/download", "_blank");
+      } else {
+        connect();
+      }
     }
   };
 
@@ -45,7 +50,7 @@ const WalletButton: React.FC = () => {
         ? chain.id === 1
           ? `${formatAdress(ensName ?? address)} (${
               balance
-                ? `${reduceString(balance.formatted, 4, false)} ${
+                ? `${formatBalance(parseInt(balance.formatted, 10))} ${
                     balance.symbol
                   }`
                 : "-"
