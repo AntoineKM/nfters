@@ -10,12 +10,15 @@
   },
   "dependencies": {
     "@fontsource/dm-sans": "^4.5.9",
+    "@polkadot/api": "^10.5.1",
+    "@polkadot/extension-dapp": "^0.46.2",
     "dayjs": "^1.11.7",
     "ethers": "^5",
     "next": "latest",
     "react": "18.2",
     "react-dom": "18.1",
     "styled-components": "^5.3.10",
+    "usehooks-ts": "^2.9.1",
     "wagmi": "^0.12.12"
   },
   "devDependencies": {
