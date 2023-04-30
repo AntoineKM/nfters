@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 
+import WalletButton from "./WalletButton";
 import Button from "../Button";
 import SearchIcon from "../Icons/Search";
 import Input from "../Input";
@@ -28,7 +29,7 @@ const Navbar: React.FC = () => {
             width={300}
           />
           <Button>{"Upload"}</Button>
-          <Button variant={"secondary"}>{"Connect Wallet"}</Button>
+          <WalletButton />
         </Interact>
       </Container>
     </Wrapper>
