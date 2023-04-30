@@ -14,9 +14,10 @@ const Button: React.FC<ButtonProps> = ({
   variant,
   size,
   children,
+  ...props
 }: ButtonProps) => {
   return (
-    <Container variant={variant} size={size}>
+    <Container variant={variant} size={size} {...props}>
       {children}
     </Container>
   );
