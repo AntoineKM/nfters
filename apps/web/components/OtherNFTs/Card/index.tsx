@@ -8,7 +8,7 @@ export type CardProps = {
 const Card: React.FC<CardProps> = ({ name, thumbnail }: CardProps) => {
   return (
     <Container>
-      <Thumbnail src={thumbnail} />
+      <Thumbnail src={thumbnail} alt={name} />
       <Name>{name}</Name>
       <Separator />
     </Container>
