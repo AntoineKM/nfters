@@ -60,9 +60,9 @@ const OtherNFTs: React.FC = () => {
               );
             })}
         </Cards>
-        <Button variant={"secondary"} onClick={handleLoadMore}>
+        <StyledButton variant={"secondary"} onClick={handleLoadMore}>
           {"More NFTs"}
-        </Button>
+        </StyledButton>
       </Container>
     </Wrapper>
   );
@@ -95,6 +95,10 @@ const Cards = styled.div`
   margin-left: -16px;
   flex-wrap: wrap;
   width: 100%;
+`;
+
+const StyledButton = styled(Button)`
+  margin-top: 32px;
 `;
 
 export default OtherNFTs;

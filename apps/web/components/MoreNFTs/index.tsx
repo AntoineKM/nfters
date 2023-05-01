@@ -40,7 +40,7 @@ const MoreNFTs: React.FC = () => {
             timeLeft={new Date(new Date().getTime() + 3 * 24 * 60 * 60 * 1000)}
           />
         </Cards>
-        <Button variant={"secondary"}>{"More NFTs"}</Button>
+        <StyledButton variant={"secondary"}>{"More NFTs"}</StyledButton>
       </Container>
     </Wrapper>
   );
@@ -73,6 +73,10 @@ const Cards = styled.div`
   margin-left: -16px;
   flex-wrap: wrap;
   width: 100%;
+`;
+
+const StyledButton = styled(Button)`
+  margin-top: 32px;
 `;
 
 export default MoreNFTs;
