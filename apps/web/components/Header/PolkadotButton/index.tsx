@@ -53,8 +53,6 @@ const PolkadotButton: React.FC = () => {
     }
   };
 
-  console.log(account);
-
   return (
     <Button variant={"secondary"} onClick={handleClick}>
       {account
