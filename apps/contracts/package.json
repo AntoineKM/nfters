@@ -27,9 +27,7 @@
     "compile": "hardhat compile",
     "deploy": "hardhat run scripts/deploy.ts",
     "deploy:local": "hardhat run --network localhost scripts/deploy.ts",
-    "test": "hardhat test",
-    "build": "yarn compile && yarn deploy",
-    "start": "yarn run node"
+    "test": "hardhat test"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.8.3"
