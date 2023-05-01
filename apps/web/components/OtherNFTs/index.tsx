@@ -1,36 +1,63 @@
+import React from "react";
 import styled from "styled-components";
+import useSWR from "swr";
 
 import Card from "./Card";
+import { endpoint, fetcher } from "../../services/api";
+import { NFT, NFTMetadata } from "../../types";
+import { convertIPFStoHTTP } from "../../utils/layout";
 import Button from "../Button";
 
 const OtherNFTs: React.FC = () => {
+  const limit = 8;
+
+  const [cursor, setCursor] = React.useState<string | null>(null);
+  const { data } = useSWR(
+    `${endpoint}/uwucrew?limit=${limit}${cursor ? `&cursor=${cursor}` : ""}`,
+    fetcher
+  );
+
+  const [arts, setArts] = React.useState<NFT[]>([]);
+
+  React.useEffect(() => {
+    if (
+      data &&
+      data.result &&
+      data.result.length > 0 &&
+      !arts.includes(data.result[0])
+    ) {
+      setArts([...arts, ...data.result]);
+    }
+  }, [data]);
+
+  const handleLoadMore = React.useCallback(() => {
+    if (data?.cursor) {
+      setCursor(data.cursor);
+    }
+  }, [data]);
+
   return (
     <Wrapper>
       <Container>
         <Title>{"Discover other NFTs"}</Title>
         <Cards>
-          <Card
-            name={"CryptoPunks"}
-            thumbnail={"https://picsum.photos/500/700?random=1"}
-          />
-          <Card
-            name={"CryptoPunks"}
-            thumbnail={"https://picsum.photos/500/700?random=1"}
-          />
-          <Card
-            name={"CryptoPunks"}
-            thumbnail={"https://picsum.photos/500/700?random=1"}
-          />
-          <Card
-            name={"CryptoPunks"}
-            thumbnail={"https://picsum.photos/500/700?random=1"}
-          />
-          <Card
-            name={"CryptoPunks"}
-            thumbnail={"https://picsum.photos/500/700?random=1"}
-          />
+          {arts &&
+            arts.length > 0 &&
+            arts.map((nft) => {
+              const metadata: NFTMetadata = JSON.parse(nft.metadata);
+
+              return (
+                <Card
+                  key={nft.token_id}
+                  name={metadata.name}
+                  thumbnail={convertIPFStoHTTP(metadata.image)}
+                />
+              );
+            })}
         </Cards>
-        <Button variant={"secondary"}>{"More NFTs"}</Button>
+        <Button variant={"secondary"} onClick={handleLoadMore}>
+          {"More NFTs"}
+        </Button>
       </Container>
     </Wrapper>
   );
