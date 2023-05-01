@@ -3,7 +3,7 @@ import React from "react";
 import { useLocalStorage } from "usehooks-ts";
 
 import { endpoint } from "../../../services/polkadot";
-import { formatAdress, formatBalance } from "../../../utils/layout";
+import { formatAdress, formatBalance } from "../../../utils/collections";
 import Button from "../../Button";
 
 export type PolkadotAccount = {
@@ -52,8 +52,6 @@ const PolkadotButton: React.FC = () => {
       connect();
     }
   };
-
-  console.log(account);
 
   return (
     <Button variant={"secondary"} onClick={handleClick}>

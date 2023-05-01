@@ -1,36 +1,68 @@
+import React from "react";
 import styled from "styled-components";
+import useSWR from "swr";
 
 import Card from "./Card";
+import { endpoint, fetcher } from "../../services/api";
+import { NFT, NFTMetadata } from "../../types";
+import { convertIPFStoHTTP } from "../../utils/collections";
 import Button from "../Button";
 
 const OtherNFTs: React.FC = () => {
+  const limit = 8;
+
+  const [cursor, setCursor] = React.useState<string | null>(null);
+  const { data } = useSWR(
+    `${endpoint}/uwucrew?limit=${limit}${cursor ? `&cursor=${cursor}` : ""}`,
+    fetcher
+  ) as { data: { result: NFT[]; cursor: string } };
+
+  const [arts, setArts] = React.useState<NFT[]>([]);
+
+  React.useEffect(() => {
+    if (
+      data &&
+      data.result &&
+      data.result.length > 0 &&
+      !data.result.some(
+        (nft) =>
+          arts.some((art) => art.token_id === nft.token_id) && arts.length > 0
+      )
+    ) {
+      setArts([...arts, ...data.result]);
+    }
+  }, [data]);
+
+  const handleLoadMore = React.useCallback(() => {
+    if (data?.cursor) {
+      setCursor(data.cursor);
+    }
+  }, [data]);
+
   return (
     <Wrapper>
       <Container>
         <Title>{"Discover other NFTs"}</Title>
         <Cards>
-          <Card
-            name={"CryptoPunks"}
-            thumbnail={"https://picsum.photos/500/700?random=1"}
-          />
-          <Card
-            name={"CryptoPunks"}
-            thumbnail={"https://picsum.photos/500/700?random=1"}
-          />
-          <Card
-            name={"CryptoPunks"}
-            thumbnail={"https://picsum.photos/500/700?random=1"}
-          />
-          <Card
-            name={"CryptoPunks"}
-            thumbnail={"https://picsum.photos/500/700?random=1"}
-          />
-          <Card
-            name={"CryptoPunks"}
-            thumbnail={"https://picsum.photos/500/700?random=1"}
-          />
+          {arts &&
+            arts.length > 0 &&
+            arts.map((nft) => {
+              const metadata: NFTMetadata = JSON.parse(nft.metadata);
+
+              return (
+                <Card
+                  key={nft.token_id}
+                  id={nft.token_id}
+                  name={metadata.name}
+                  address={nft.token_address}
+                  thumbnail={convertIPFStoHTTP(metadata.image)}
+                />
+              );
+            })}
         </Cards>
-        <Button variant={"secondary"}>{"More NFTs"}</Button>
+        <Button variant={"secondary"} onClick={handleLoadMore}>
+          {"More NFTs"}
+        </Button>
       </Container>
     </Wrapper>
   );
