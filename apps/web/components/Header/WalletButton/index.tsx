@@ -10,7 +10,7 @@ import {
 } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
 
-import { formatAdress, formatBalance } from "../../../utils/layout";
+import { formatAdress, formatBalance } from "../../../utils/collections";
 import Button from "../../Button";
 
 const WalletButton: React.FC = () => {
