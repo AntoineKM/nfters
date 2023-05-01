@@ -5,7 +5,7 @@ import useSWR from "swr";
 import Card from "./Card";
 import { endpoint, fetcher } from "../../services/api";
 import { NFT, NFTMetadata } from "../../types";
-import { convertIPFStoHTTP } from "../../utils/layout";
+import { convertIPFStoHTTP } from "../../utils/collections";
 import Button from "../Button";
 
 const OtherNFTs: React.FC = () => {
@@ -15,7 +15,7 @@ const OtherNFTs: React.FC = () => {
   const { data } = useSWR(
     `${endpoint}/uwucrew?limit=${limit}${cursor ? `&cursor=${cursor}` : ""}`,
     fetcher
-  );
+  ) as { data: { result: NFT[]; cursor: string } };
 
   const [arts, setArts] = React.useState<NFT[]>([]);
 
@@ -24,7 +24,10 @@ const OtherNFTs: React.FC = () => {
       data &&
       data.result &&
       data.result.length > 0 &&
-      !arts.includes(data.result[0])
+      !data.result.some(
+        (nft) =>
+          arts.some((art) => art.token_id === nft.token_id) && arts.length > 0
+      )
     ) {
       setArts([...arts, ...data.result]);
     }
@@ -49,7 +52,9 @@ const OtherNFTs: React.FC = () => {
               return (
                 <Card
                   key={nft.token_id}
+                  id={nft.token_id}
                   name={metadata.name}
+                  address={nft.token_address}
                   thumbnail={convertIPFStoHTTP(metadata.image)}
                 />
               );
