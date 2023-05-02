@@ -4,7 +4,7 @@ This is the Express API for the Ternoa assessment.
 
 ## Getting Started
 
-This project is made with [Turborepo](https://turbo.build/repo) and [Yarn](https://yarnpkg.com/) but if you want to run it independently you can use the following commands:
+This app is made with [Turborepo](https://turbo.build/repo) and [Yarn](https://yarnpkg.com/) but if you want to run it independently you can use the following commands:
 
 1. Clone the repository
 
@@ -12,7 +12,7 @@ This project is made with [Turborepo](https://turbo.build/repo) and [Yarn](https
 git clone https://github.com/AntoineKM/ternoa-assessment
 ```
 
-2. Go to the project directory
+2. Go to the app directory
 
 ```bash
 cd ternoa-assessment/apps/api

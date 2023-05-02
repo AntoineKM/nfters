@@ -10,7 +10,7 @@
 
 <p align="center">
   <a aria-label="Made by Antoine Kingue" href="https://antoinek.fr">
-    <img src="https://img.shields.io/badge/MADE%20BY%20ANTOINEKM-000.svg?style=for-the-badge&labelColor=000" alt="Made by onRuntime Studio">
+    <img src="https://img.shields.io/badge/MADE%20BY%20ANTOINEKM-000.svg?style=for-the-badge&labelColor=000" alt="Made by Antoine Kingue">
   </a>
   <a aria-label="License" href="https://github.com/antoinekm/ternoa-assessment/blob/master/LICENSE">
     <img alt="" src="https://img.shields.io/npm/l/next.svg?style=for-the-badge&labelColor=000000">
@@ -62,6 +62,17 @@ For more details and the choices I made visit each app:
 Visit [live demo](https://nft.hop.sh) to see the project in action.
 
 [![Demo](./assets/demo.png)](https://nft.hop.sh)
+
+## Root choices
+
+- Turborepo - To manage the monorepo
+- Yarn - To manage the dependencies (I would have preferred to use pnpm but there are still issues with expo and monorepos)
+- ESLint - To lint the code (with my own config)
+- Prettier - To format the code
+- Node >=16 - Unfortunately `@polkadot/api` does not support older versions
+- Hop - To deploy the project for free
+
+To know more about the choices I made for each app [visit their README's](#apps).
 
 ## License
 [MIT](LICENSE)

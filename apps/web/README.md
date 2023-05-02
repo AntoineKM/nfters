@@ -1,30 +1,46 @@
+# web
+
+This is the web app for the Ternoa assessment.
+
 ## Getting Started
 
-First, run the development server:
+This app is made with [Turborepo](https://turbo.build/repo) and [Yarn](https://yarnpkg.com/) but if you want to run it independently you can use the following commands:
+
+1. Clone the repository
 
 ```bash
-yarn dev
+git clone https://github.com/AntoineKM/ternoa-assessment
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Go to the app directory
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+cd ternoa-assessment/apps/web
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+3. Install dependencies
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+yarn install
+```
 
-## Learn More
+4. Now you can use the following commands:
 
-To learn more about Next.js, take a look at the following resources:
+- `yarn dev` - Runs `next dev` to start the web app in development mode
+- `yarn build` - Runs `next build` to build the web app for production
+- `yarn start` - Runs `node dist/index` to start the web app in production mode (only after `yarn build`)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn/foundations/about-nextjs) - an interactive Next.js tutorial.
+## Choices
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- TypeScript - For type safety
+- Next.js - For building the web app
+- Styled Components - For styling the web app
+- SWR - For data fetching
+- Wagmi - For connecting to Web3 and interacting with the Ethereum blockchain
 
-## Deploy on Vercel
+## Demo
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_source=github.com&utm_medium=referral&utm_campaign=turborepo-readme) from the creators of Next.js.
+Visit [deployment demo](https://api-nft.hop.sh) to see the project in action.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+[MIT](LICENSE)
