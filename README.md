@@ -29,13 +29,19 @@ This project is made with [Turborepo](https://turbo.build/repo) and [Yarn](https
 git clone https://github.com/AntoineKM/ternoa-assessment
 ```
 
-2. Install dependencies
+2. Go to the project directory
+
+```bash
+cd ternoa-assessment
+```
+
+3. Install dependencies
 
 ```bash
 yarn install
 ```
 
-3. Now you can use the following commands:
+4. Now you can use the following commands:
 
 - `yarn dev` - Runs `turbo dev` to start turborepo in development mode
 - `yarn build` - Runs `turbo build` to build the project
