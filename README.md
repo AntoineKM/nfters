@@ -1,24 +1,61 @@
-# nfters
+<p align="center">
+  <a href="https://www.ternoa.network/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./assets/ternoa.svg">
+      <img src="./assets/ternoa-dark.svg" alt="Ternoa" height="50" />
+    </picture>
+    <h3 align="center">Assessment</h3>
+  </a>
+</p>
 
-Digital marketplace for crypto collectibles and non-fungible tokens (NFTs). Buy, Sell, and discover exclusive digital assets.
+<p align="center">
+  <a aria-label="Made by Antoine Kingue" href="https://antoinek.fr">
+    <img src="https://img.shields.io/badge/MADE%20BY%20ANTOINEKM-000.svg?style=for-the-badge&labelColor=000" alt="Made by onRuntime Studio">
+  </a>
+  <a aria-label="License" href="https://github.com/antoinekm/ternoa-assessment/blob/master/LICENSE">
+    <img alt="" src="https://img.shields.io/npm/l/next.svg?style=for-the-badge&labelColor=000000">
+  </a>
+</p>
 
-## What's inside?
+Ternoa assessment for the position of Senior Developer.
 
-This Turborepo includes the following packages/apps:
+## Getting Started
 
-### Apps and Packages
+This project is made with [Turborepo](https://turbo.build/repo) and [Yarn](https://yarnpkg.com/).
 
-- `native`: a [react-native](https://reactnative.dev/) app built with [expo](https://docs.expo.dev/)
-- `web`: a [Next.js](https://nextjs.org/) app built with [react-native-web](https://necolas.github.io/react-native-web/)
-- `api`: an [express](https://expressjs.com/) server
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+1. Clone the repository
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+```bash
+git clone https://github.com/AntoineKM/ternoa-assessment
+```
 
-### Utilities
+2. Install dependencies
 
-This Turborepo has some additional tools already setup for you:
+```bash
+yarn install
+```
 
-- [Expo](https://docs.expo.dev/) for native development
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [Prettier](https://prettier.io) for code formatting
+3. Now you can use the following commands:
+
+- `yarn dev` - Runs `turbo dev` to start turborepo in development mode
+- `yarn build` - Runs `turbo build` to build the project
+- `yarn start` - Runs `turbo start` to start turborepo in production mode (only after `yarn build`)
+- `yarn lint` - Runs `eslint` to lint the project
+
+### Apps
+
+For more details and the choices I made visit each app:
+
+- [api](./apps/api) - Express API
+- [contracts](./apps/contracts) - Smart contracts
+- [native](./apps/native) - Expo app
+- [web](./apps/web) - Next.js app
+
+## Demo
+
+Visit [live demo](https://nft.hop.sh) to see the project in action.
+
+[![Demo](./assets/demo.png)](https://nft.hop.sh)
+
+## License
+[MIT](LICENSE)
