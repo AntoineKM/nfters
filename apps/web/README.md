@@ -40,7 +40,9 @@ yarn install
 
 ## Demo
 
-Visit [deployment demo](https://api-nft.hop.sh) to see the project in action.
+Visit [live demo](https://nft.hop.sh) to see the project in action.
+
+[![Demo](./assets/demo.png)](https://nft.hop.sh)
 
 ## License
 [MIT](LICENSE)
