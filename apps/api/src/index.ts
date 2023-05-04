@@ -1,10 +1,13 @@
 import cors from "cors";
 import dotenv from "dotenv-flow";
 import express from "express";
+import mongoose from "mongoose";
 import Moralis from "moralis";
 import { AddressInfo } from "net";
 
+import auctionsRouter from "./routes/auctions";
 import uwucrewRouter from "./routes/uwucrew";
+import { databaseUri } from "./services/mongodb";
 import Log from "./utils/log";
 
 dotenv.config({
@@ -25,6 +28,7 @@ const main = async () => {
     process.env.NODE_ENV === "production" ? "0.0.0.0" : "127.0.0.1";
 
   app.use(cors());
+  app.use(express.json());
   app.get("/", (_req, res) => {
     res.send({
       health: "ok",
@@ -32,8 +36,18 @@ const main = async () => {
   });
 
   app.use("/uwucrew", uwucrewRouter);
+  app.use("/auctions", auctionsRouter);
 
-  Log.wait("starting moralis");
+  Log.wait("connecting to mongodb...");
+  try {
+    await mongoose.connect(databaseUri);
+    Log.event("connected to mongodb");
+  } catch (error) {
+    Log.error("failed to connect to mongodb", error);
+    process.exit(1);
+  }
+
+  Log.wait("starting moralis...");
   try {
     await Moralis.start({
       apiKey: process.env.MORALIS_API_KEY,
