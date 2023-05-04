@@ -1,4 +1,3 @@
-// routes/uwucrew/index.ts
 import { EvmChain } from "@moralisweb3/common-evm-utils";
 import { Router } from "express";
 import Moralis from "moralis";
