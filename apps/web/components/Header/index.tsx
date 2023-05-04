@@ -2,6 +2,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 import PolkadotButton from "./PolkadotButton";
+import Upload from "./Upload";
 import WalletButton from "./WalletButton";
 import Button from "../Button";
 import SearchIcon from "../Icons/Search";
@@ -23,13 +24,7 @@ const Navbar: React.FC = () => {
           </Nav>
         </Menu>
         <Interact>
-          <Input
-            type={"text"}
-            placeholder={"Search"}
-            suffix={<SearchIcon />}
-            width={300}
-          />
-          <Button>{"Upload"}</Button>
+          <Upload />
           <PolkadotButton />
           <WalletButton />
         </Interact>
