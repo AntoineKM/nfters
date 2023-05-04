@@ -13,6 +13,15 @@ export const convertIPFStoHTTP = (ipfs: string) => {
   return url;
 };
 
+export const convertIPFSPathtoHTTP = (path: string) => {
+  const url = `https://ipfs.io/ipfs/${path}`;
+  return url;
+};
+
 export const getOpenSeaAssetUrl = (address: string, tokenId: string) => {
   return `https://opensea.io/assets/${address}/${tokenId}`;
+};
+
+export const getId = () => {
+  return Math.random().toString(32).slice(2, 10);
 };

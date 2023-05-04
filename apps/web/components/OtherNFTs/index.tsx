@@ -4,8 +4,7 @@ import useSWR from "swr";
 
 import Card from "./Card";
 import { endpoint, fetcher } from "../../services/api";
-import { NFT, NFTMetadata } from "../../types";
-import { convertIPFStoHTTP } from "../../utils/collections";
+import { NFT } from "../../types";
 import Button from "../Button";
 
 const OtherNFTs: React.FC = () => {
@@ -47,17 +46,7 @@ const OtherNFTs: React.FC = () => {
           {arts &&
             arts.length > 0 &&
             arts.map((nft) => {
-              const metadata: NFTMetadata = JSON.parse(nft.metadata);
-
-              return (
-                <Card
-                  key={nft.token_id}
-                  id={nft.token_id}
-                  name={metadata.name}
-                  address={nft.token_address}
-                  thumbnail={convertIPFStoHTTP(metadata.image)}
-                />
-              );
+              return <Card key={nft.token_id} data={nft} />;
             })}
         </Cards>
         <StyledButton variant={"secondary"} onClick={handleLoadMore}>
