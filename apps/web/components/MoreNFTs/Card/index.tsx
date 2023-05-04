@@ -1,33 +1,25 @@
 import dayjs from "dayjs";
 import styled from "styled-components";
 
+import { Auction } from "../../../types";
+import { convertIPFSPathtoHTTP } from "../../../utils/collections";
 import EthereumIcon from "../../Icons/Ethereum";
 
 export type CardProps = {
-  name: string;
-  thumbnail: string;
-  bid: number;
-  timeLeft: Date;
+  data: Auction;
 };
 
-const Card: React.FC<CardProps> = ({
-  name,
-  thumbnail,
-  bid,
-  timeLeft,
-}: CardProps) => {
+const Card: React.FC<CardProps> = ({ data }: CardProps) => {
   return (
     <Container>
-      <Thumbnail src={thumbnail} />
-      <Name>{name}</Name>
+      <Thumbnail src={convertIPFSPathtoHTTP(data.path)} />
+      <Name>{data.title}</Name>
       <Bid>
-        <StyledEthereumIcon green /> {`${bid} ETH`}
+        <StyledEthereumIcon green /> {`${data.endingPrice} ETH`}
       </Bid>
       <Separator />
       <Footer>
-        <Time>{`${dayjs(timeLeft).format("hh")}h ${dayjs(timeLeft).format(
-          "mm"
-        )}m left`}</Time>
+        <Time>{`${dayjs().format("hh")}h ${dayjs().format("mm")}m left`}</Time>
         <PlaceBid>{"Place a bid"}</PlaceBid>
       </Footer>
     </Container>
@@ -41,6 +33,13 @@ const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.background.lightest};
   padding: 16px;
   border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  :hover {
+    box-shadow: 3px 5px 4px 2px #e5e5e5;
+    transform: scale(1.01);
+  }
 `;
 
 const Thumbnail = styled.img`

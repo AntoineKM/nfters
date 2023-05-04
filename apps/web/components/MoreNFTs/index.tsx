@@ -1,46 +1,63 @@
+import React from "react";
 import styled from "styled-components";
+import useSWR from "swr";
 
 import Card from "./Card";
+import { endpoint, fetcher } from "../../services/api";
+import { Auction } from "../../types";
 import Button from "../Button";
 
 const MoreNFTs: React.FC = () => {
+  const limit = 8;
+
+  const [cursor, setCursor] = React.useState<number | null>(0);
+  const { data } = useSWR(
+    `${endpoint}/auctions?limit=${limit}${cursor ? `&cursor=${cursor}` : ""}`,
+    fetcher
+  ) as { data: { auctions: Auction[]; cursor: number | undefined } };
+
+  const [auctions, setAuctions] = React.useState<Auction[]>([]);
+
+  React.useEffect(() => {
+    if (
+      data &&
+      data.auctions &&
+      data.auctions.length > 0 &&
+      !data.auctions.some(
+        (fetchedAuction) =>
+          auctions.some(
+            (currentAuction) => currentAuction._id === fetchedAuction._id
+          ) && auctions.length > 0
+      )
+    ) {
+      setAuctions([...auctions, ...data.auctions]);
+    }
+  }, [data]);
+
+  const handleLoadMore = React.useCallback(() => {
+    if (data?.cursor) {
+      setCursor(data.cursor);
+    }
+  }, [data]);
+
+  console.log(data);
+
   return (
     <Wrapper>
       <Container>
         <Title>{"Discover more NFTs"}</Title>
         <Cards>
-          <Card
-            name={"CryptoPunks"}
-            thumbnail={"https://picsum.photos/500/700?random=1"}
-            bid={0.25}
-            timeLeft={new Date(new Date().getTime() + 3 * 24 * 60 * 60 * 1000)}
-          />
-          <Card
-            name={"CryptoPunks"}
-            thumbnail={"https://picsum.photos/500/700?random=1"}
-            bid={0.25}
-            timeLeft={new Date(new Date().getTime() + 3 * 24 * 60 * 60 * 1000)}
-          />
-          <Card
-            name={"CryptoPunks"}
-            thumbnail={"https://picsum.photos/500/700?random=1"}
-            bid={0.25}
-            timeLeft={new Date(new Date().getTime() + 3 * 24 * 60 * 60 * 1000)}
-          />
-          <Card
-            name={"CryptoPunks"}
-            thumbnail={"https://picsum.photos/500/700?random=1"}
-            bid={0.25}
-            timeLeft={new Date(new Date().getTime() + 3 * 24 * 60 * 60 * 1000)}
-          />
-          <Card
-            name={"CryptoPunks"}
-            thumbnail={"https://picsum.photos/500/700?random=1"}
-            bid={0.25}
-            timeLeft={new Date(new Date().getTime() + 3 * 24 * 60 * 60 * 1000)}
-          />
+          {auctions &&
+            auctions.length > 0 &&
+            auctions.map((auction) => {
+              return <Card key={auction._id} data={auction} />;
+            })}
         </Cards>
-        <StyledButton variant={"secondary"}>{"More NFTs"}</StyledButton>
+        {data?.cursor && (
+          <StyledButton variant={"secondary"} onClick={handleLoadMore}>
+            {"More NFTs"}
+          </StyledButton>
+        )}
       </Container>
     </Wrapper>
   );
