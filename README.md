@@ -41,7 +41,11 @@ cd ternoa-assessment
 yarn install
 ```
 
-4. Now you can use the following commands:
+4. Setup the environment variables
+
+In each app there is a `.env.example` file. You need to copy it and rename it to `.env` and fill the variables. You can find the variables in the [apps README's](#apps).
+
+5. Now you can use the following commands:
 
 - `yarn dev` - Runs `turbo dev` to start turborepo in development mode
 - `yarn build` - Runs `turbo build` to build the project

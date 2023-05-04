@@ -24,7 +24,11 @@ cd ternoa-assessment/apps/api
 yarn install
 ```
 
-4. Now you can use the following commands:
+4. Setup the environment variables
+
+Copy the [`.env.example`](.env.example) file and rename it to `.env.local` and fill the variables.
+
+5. Now you can use the following commands:
 
 - `yarn dev` - Runs `nodemon --exec ts-node src/index` to start the API in development mode
 - `yarn build` - Runs `tsc` to build the API

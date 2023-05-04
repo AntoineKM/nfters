@@ -24,7 +24,11 @@ cd ternoa-assessment/apps/web
 yarn install
 ```
 
-4. Now you can use the following commands:
+4. Setup the environment variables
+
+Copy the [`.env.example`](.env.example) file and rename it to `.env.local` and fill the variables.
+
+5. Now you can use the following commands:
 
 - `yarn dev` - Runs `next dev` to start the web app in development mode
 - `yarn build` - Runs `next build` to build the web app for production
