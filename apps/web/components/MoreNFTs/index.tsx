@@ -10,11 +10,20 @@ import Button from "../Button";
 const MoreNFTs: React.FC = () => {
   const limit = 8;
 
-  const [cursor, setCursor] = React.useState<number | null>(0);
+  const [cursor, setCursor] = React.useState<number>(0);
+  const [currentCategory, setCurrentCategory] = React.useState<string>("all");
+
   const { data } = useSWR(
-    `${endpoint}/auctions?limit=${limit}${cursor ? `&cursor=${cursor}` : ""}`,
+    `${endpoint}/auctions?limit=${limit}${cursor ? `&cursor=${cursor}` : ""}${
+      currentCategory !== "all" ? `&category=${currentCategory}` : ""
+    }`,
     fetcher
   ) as { data: { auctions: Auction[]; cursor: number | undefined } };
+
+  const { data: auctionsCategories } = useSWR(
+    `${endpoint}/auctions/categories`,
+    fetcher
+  ) as { data: { categories: string[] } };
 
   const [auctions, setAuctions] = React.useState<Auction[]>([]);
 
@@ -40,12 +49,32 @@ const MoreNFTs: React.FC = () => {
     }
   }, [data]);
 
-  console.log(data);
+  const handleCategoryChange = React.useCallback((c: string) => {
+    setCurrentCategory(c);
+    setCursor(0);
+    setAuctions([]);
+  }, []);
 
   return (
     <Wrapper>
       <Container>
         <Title>{"Discover more NFTs"}</Title>
+        <Categories>
+          {auctionsCategories &&
+            auctionsCategories.categories &&
+            auctionsCategories.categories.length > 0 &&
+            ["all", ...auctionsCategories.categories].map((category) => {
+              return (
+                <Category
+                  key={category}
+                  active={currentCategory === category}
+                  onClick={() => handleCategoryChange(category)}
+                >
+                  {category}
+                </Category>
+              );
+            })}
+        </Categories>
         <Cards>
           {auctions &&
             auctions.length > 0 &&
@@ -82,6 +111,34 @@ const Container = styled.div`
 const Title = styled.h2`
   font-size: ${({ theme }) => theme.text.size.title};
   width: 100%;
+`;
+
+const Categories = styled.div`
+  display: flex;
+  width: 100%;
+  margin-top: 16px;
+`;
+
+const Category = styled.div<{
+  active?: boolean;
+}>`
+  font-weight: ${({ theme }) => theme.text.weight.bold};
+  color: ${({ theme, active }) =>
+    active ? theme.colors.text.white : theme.colors.text.darkGrey};
+  background-color: ${({ theme, active }) =>
+    active ? theme.colors.background.primary : "transparent"};
+  padding: 8px 16px;
+  border-radius: 16px;
+  margin-right: 32px;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-weight: ${({ theme }) => theme.text.weight.bold};
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+
+  :hover {
+    background-color: ${({ active }) => !active && "rgba(0, 0, 0, 0.1)"};
+  }
 `;
 
 const Cards = styled.div`
