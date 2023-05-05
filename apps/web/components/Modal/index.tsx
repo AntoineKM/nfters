@@ -229,6 +229,16 @@ const ModalInset = styled.div`
   margin: 0 -20px;
 `;
 
+const ModalInput = styled.input`
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid ${({ theme }) => theme.colors.border.primary};
+  border-radius: 5px;
+  font-size: ${({ theme }) => theme.text.size.small};
+  outline: none;
+  transition: all 0.2s;
+`;
+
 const Modal = {
   Modal: ModalComponent,
   Body: ModalBody,
@@ -238,6 +248,7 @@ const Modal = {
   Actions: ModalActions,
   Action: ModalAction,
   Inset: ModalInset,
+  Input: ModalInput,
 };
 
 export default Modal;
