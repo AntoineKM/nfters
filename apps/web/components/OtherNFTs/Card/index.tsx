@@ -37,20 +37,22 @@ const Card: React.FC<CardProps> = ({ data }: CardProps) => {
             <Modal.Title>{metadata.name}</Modal.Title>
           </Modal.Header>
 
-          <ModalList>
-            {metadata.attributes
-              .sort((a, b) => a.trait_type.localeCompare(b.trait_type))
-              .map((attribute) => {
-                return (
-                  <ModalListItem key={attribute.trait_type}>
-                    <ModalListItemTitle>
-                      {attribute.trait_type}
-                    </ModalListItemTitle>
-                    <ModalListItemValue>{attribute.value}</ModalListItemValue>
-                  </ModalListItem>
-                );
-              })}
-          </ModalList>
+          <Modal.Inset>
+            <ModalList>
+              {metadata.attributes
+                .sort((a, b) => a.trait_type.localeCompare(b.trait_type))
+                .map((attribute) => {
+                  return (
+                    <ModalListItem key={attribute.trait_type}>
+                      <ModalListItemTitle>
+                        {attribute.trait_type}
+                      </ModalListItemTitle>
+                      <ModalListItemValue>{attribute.value}</ModalListItemValue>
+                    </ModalListItem>
+                  );
+                })}
+            </ModalList>
+          </Modal.Inset>
         </Modal.Body>
 
         <Modal.Actions>
@@ -117,7 +119,7 @@ const ModalList = styled.ul`
 const ModalListItem = styled.li`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 `;
 
 const ModalListItemTitle = styled.span`
