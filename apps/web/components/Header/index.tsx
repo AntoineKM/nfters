@@ -4,9 +4,6 @@ import styled from "styled-components";
 import PolkadotButton from "./PolkadotButton";
 import Upload from "./Upload";
 import WalletButton from "./WalletButton";
-import Button from "../Button";
-import SearchIcon from "../Icons/Search";
-import Input from "../Input";
 
 const Navbar: React.FC = () => {
   return (
