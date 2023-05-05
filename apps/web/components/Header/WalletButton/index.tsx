@@ -45,7 +45,7 @@ const WalletButton: React.FC = () => {
   };
 
   return (
-    <Button variant={"secondary"} onClick={handleClick}>
+    <Button variant={"secondary"} onClick={handleClick} size={"small"}>
       {isConnected
         ? chain.id === 1
           ? `${formatAdress(ensName ?? address)} (${

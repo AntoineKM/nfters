@@ -54,7 +54,7 @@ const PolkadotButton: React.FC = () => {
   };
 
   return (
-    <Button variant={"secondary"} onClick={handleClick}>
+    <Button variant={"secondary"} onClick={handleClick} size={"small"}>
       {account
         ? `${formatAdress(account.address)} (${formatBalance(
             parseFloat(account.balance)
