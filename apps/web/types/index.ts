@@ -12,14 +12,24 @@ export type NFTMetadataAttribute = {
   value: string;
 };
 
-export type Auction = {
-  title: string;
-  startingPrice: number;
-  endingPrice: number;
-  category: string;
-  owner: string;
-  path: string;
-  createdAt: Date;
+export type Document = {
   _id: string;
   __v: number;
 };
+
+export type Auction = {
+  title: string;
+  startingPrice: number;
+  category: string;
+  owner: string;
+  path: string;
+  endingAt: Date;
+  createdAt: Date;
+  bids: AuctionBid[];
+} & Document;
+
+export type AuctionBid = {
+  address: string;
+  amount: number;
+  createdAt: Date;
+} & Document;
