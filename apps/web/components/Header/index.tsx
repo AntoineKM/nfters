@@ -32,8 +32,15 @@ const Navbar: React.FC = () => {
 
 const Wrapper = styled.header`
   width: 100%;
-  height: 110px;
+  min-height: 110px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.border.primary};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    min-height: 80px;
+  }
 `;
 
 const Container = styled.header`
@@ -45,6 +52,14 @@ const Container = styled.header`
   width: 100%;
   margin: 0 auto;
   padding: 0 15px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    gap: 15px;
+  }
 `;
 
 const Menu = styled.nav`
@@ -53,6 +68,11 @@ const Menu = styled.nav`
   justify-content: center;
   gap: 20px;
   height: 100%;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 const Brand = styled.h1`
@@ -64,6 +84,10 @@ const Separator = styled.span`
   width: 1px;
   height: 50%;
   background-color: ${({ theme }) => theme.colors.border.primary};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    display: none;
+  }
 `;
 
 const Nav = styled.ul`

@@ -2,6 +2,7 @@ import { WsProvider, ApiPromise } from "@polkadot/api";
 import React from "react";
 import { useLocalStorage } from "usehooks-ts";
 
+import useBreakpoint from "../../../hooks/useBreakpoint";
 import { endpoint } from "../../../services/polkadot";
 import { formatAdress, formatBalance } from "../../../utils/collections";
 import Button from "../../Button";
@@ -16,6 +17,7 @@ const PolkadotButton: React.FC = () => {
     "polkadot_account",
     null
   );
+  const { isMobile } = useBreakpoint();
 
   const disconnect = () => {
     setAccount(null);
@@ -59,6 +61,8 @@ const PolkadotButton: React.FC = () => {
         ? `${formatAdress(account.address)} (${formatBalance(
             parseFloat(account.balance)
           )} DOT)`
+        : isMobile
+        ? "Polkadot"
         : "Connect Polkadot"}
     </Button>
   );

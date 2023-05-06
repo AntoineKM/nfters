@@ -63,6 +63,14 @@ const Container = styled.div`
   gap: 20px;
   margin-left: 30px;
   margin-top: 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    width: calc(50% - 30px);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    width: 100%;
+  }
 `;
 
 const ThumbnailContainer = styled.div`

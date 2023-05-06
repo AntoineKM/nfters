@@ -35,6 +35,12 @@ const Container = styled.div`
   padding: 0 15px;
   display: flex;
   align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+  }
 `;
 
 const Thumbnail = styled.img`
@@ -42,6 +48,11 @@ const Thumbnail = styled.img`
   width: 100%;
   height: 600px;
   object-fit: contain;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    max-width: 100%;
+    height: auto;
+  }
 `;
 
 const Content = styled.div`
@@ -53,6 +64,13 @@ const Content = styled.div`
   width: 100%;
   align-items: flex-start;
   padding: 0 40px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    max-width: 100%;
+    align-items: center;
+    padding: 0;
+    text-align: center;
+  }
 `;
 
 const Title = styled.h2`

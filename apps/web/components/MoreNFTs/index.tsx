@@ -111,12 +111,18 @@ const Container = styled.div`
 const Title = styled.h2`
   font-size: ${({ theme }) => theme.text.size.title};
   width: 100%;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    text-align: center;
+  }
 `;
 
 const Categories = styled.div`
   display: flex;
   width: 100%;
   margin-top: 16px;
+  flex-wrap: wrap;
+  gap: 8px;
 `;
 
 const Category = styled.div<{
@@ -129,7 +135,6 @@ const Category = styled.div<{
     active ? theme.colors.background.primary : "transparent"};
   padding: 8px 16px;
   border-radius: 16px;
-  margin-right: 32px;
   cursor: pointer;
   text-transform: capitalize;
   font-weight: ${({ theme }) => theme.text.weight.bold};
@@ -138,6 +143,10 @@ const Category = styled.div<{
 
   :hover {
     background-color: ${({ active }) => !active && "rgba(0, 0, 0, 0.1)"};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    background-color: ${({ active }) => !active && "rgba(0, 0, 0, 0.05)"};
   }
 `;
 

@@ -76,6 +76,10 @@ const Container = styled.div`
 const Title = styled.h2`
   font-size: ${({ theme }) => theme.text.size.title};
   width: 100%;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    text-align: center;
+  }
 `;
 
 const Cards = styled.div`

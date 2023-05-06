@@ -88,12 +88,22 @@ const Container = styled.div`
 const Content = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
 `;
 
 const Row = styled.div`
   display: flex;
   flex: 1;
   padding: 0 15px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    padding: 0;
+  }
 `;
 
 const Col = styled.div`
@@ -109,6 +119,10 @@ const Col = styled.div`
 
   :last-child {
     padding-right: 0;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    padding: 0;
   }
 `;
 

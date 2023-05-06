@@ -40,6 +40,10 @@ const Container = styled.div`
 
 const Title = styled.h2`
   font-size: ${({ theme }) => theme.text.size.title};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    text-align: center;
+  }
 `;
 
 const Cards = styled.div`

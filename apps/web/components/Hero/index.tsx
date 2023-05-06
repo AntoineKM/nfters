@@ -71,6 +71,8 @@ const Hero: React.FC = () => {
 
 const Wrapper = styled.section`
   padding: 64px 0 96px;
+
+  overflow: hidden;
 `;
 
 const Container = styled.div`
@@ -79,6 +81,13 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 0 15px;
   display: flex;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    align-items: center;
+  }
 `;
 
 const Content = styled.div`
@@ -89,6 +98,12 @@ const Content = styled.div`
   max-width: 60%;
   width: 100%;
   align-items: flex-start;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
 `;
 
 const Title = styled.h1`
@@ -141,6 +156,12 @@ const Cards = styled.div`
     height: 80%;
     top: 50%;
     transform: translateY(-50%);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    max-width: 100%;
+    justify-content: center;
+    width: 350px;
   }
 `;
 

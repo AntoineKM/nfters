@@ -10,6 +10,7 @@ import {
 } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
 
+import useBreakpoint from "../../../hooks/useBreakpoint";
 import { formatAdress, formatBalance } from "../../../utils/collections";
 import Button from "../../Button";
 
@@ -27,6 +28,7 @@ const WalletButton: React.FC = () => {
   const { chain } = useNetwork();
   const { switchNetwork } = useSwitchNetwork();
   const { connectors } = useConnect();
+  const { isMobile } = useBreakpoint();
 
   const handleClick = () => {
     if (isConnected) {
@@ -56,6 +58,8 @@ const WalletButton: React.FC = () => {
                 : "-"
             })`
           : "Wrong Network"
+        : isMobile
+        ? "Wallet"
         : "Connect Wallet"}
     </Button>
   );

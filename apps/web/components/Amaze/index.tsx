@@ -49,12 +49,24 @@ const Container = styled.div`
   padding: 0 15px;
   display: flex;
   align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+  }
 `;
 
 const Title = styled.h2`
   font-size: ${({ theme }) => theme.text.size.title};
   max-width: 40%;
   padding-right: 20px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    max-width: 100%;
+    text-align: center;
+    padding: 0;
+  }
 `;
 
 const Content = styled.div`
@@ -62,6 +74,14 @@ const Content = styled.div`
   width: 70%;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+  }
 `;
 
 const Spec = styled.div`

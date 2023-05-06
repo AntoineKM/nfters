@@ -97,6 +97,18 @@ const Container = styled.div`
     box-shadow: 3px 5px 4px 2px #e5e5e5;
     transform: scale(1.01);
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    width: calc(33% - 16px);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    width: calc(50% - 16px);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    width: 100%;
+  }
 `;
 
 const Name = styled.h4`
