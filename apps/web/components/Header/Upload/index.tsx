@@ -33,7 +33,6 @@ const Upload: React.FC = () => {
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     if (!isConnected || chain.id !== 1) return;
-    console.log("form data", data);
     const formData = new FormData();
     formData.append("title", data.title);
     formData.append("startingPrice", data.startingPrice?.toString() || "0");

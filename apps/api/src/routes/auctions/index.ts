@@ -175,8 +175,6 @@ auctionsRouter.post("/:id/bids/add", async (req, res) => {
       throw new Error("Auction not found");
     }
 
-    console.log(req.body);
-
     if (!address || !amount) {
       throw new Error("Please provide an address and amount");
     }
