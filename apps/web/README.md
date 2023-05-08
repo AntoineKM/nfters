@@ -42,6 +42,10 @@ Copy the [`.env.example`](.env.example) file and rename it to `.env.local` and f
 - SWR - For data fetching
 - Wagmi - For connecting to Web3 and interacting with the Ethereum blockchain
 
+## Disclaimer
+
+When you add an auction, I did not have the time to make the mutation of the data that would allow to revalidate and refresh it, so once done please reload the page to refresh the data.
+
 ## Demo
 
 Visit [live demo](https://nft.hop.sh) to see the project in action.
