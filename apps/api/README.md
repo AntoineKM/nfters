@@ -40,6 +40,7 @@ Copy the [`.env.example`](.env.example) file and rename it to `.env.local` and f
 | --- | --- | --- | --- |
 | GET | `/` | Returns an health check | - |
 | GET | `/uwucrew` | Returns the list of NFTs from the UwU Crew collection | `limit` (optional) - Number of NFTs to return (default 10).<br>`cursor` (optional) - The cursor for pagination. |
+| GET | `/auctions` | Returns the list of NFTs from the Auctions collection | `limit` (optional) - Number of NFTs to return (default 10).<br>`cursor` (optional) - The cursor for pagination. |
 
 ## Choices
 
