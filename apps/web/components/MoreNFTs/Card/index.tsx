@@ -1,7 +1,8 @@
 import dayjs from "dayjs";
+import { verifyMessage } from "ethers/lib/utils.js";
 import { SubmitHandler, useForm } from "react-hook-form";
 import styled from "styled-components";
-import { useAccount, useNetwork } from "wagmi";
+import { useAccount, useNetwork, useSignMessage } from "wagmi";
 
 import useModal from "../../../hooks/useModal";
 import { endpoint } from "../../../services/api";
@@ -15,16 +16,28 @@ import Modal from "../../Modal";
 
 export type CardProps = {
   data: Auction;
+  mutate: () => void;
 };
 
 type Inputs = {
   amount: number;
 };
 
-const Card: React.FC<CardProps> = ({ data }: CardProps) => {
+const Card: React.FC<CardProps> = ({ data, mutate }: CardProps) => {
   const { address, isConnected } = useAccount();
   const { chain } = useNetwork();
   const [active, open, close] = useModal();
+
+  const message =
+    "By engaging in this auction you confirm that you have the financial means to ensure this.";
+  const { signMessage } = useSignMessage({
+    onSuccess(data) {
+      handleSubmit(onSubmit)();
+      const a = verifyMessage(message, data);
+      console.log("we could had signed the message into the request", a, data);
+    },
+  });
+
   const {
     register,
     handleSubmit,
@@ -47,6 +60,8 @@ const Card: React.FC<CardProps> = ({ data }: CardProps) => {
 
     const json = await res.json();
     console.log(json);
+
+    mutate();
 
     close();
   };
@@ -156,7 +171,11 @@ const Card: React.FC<CardProps> = ({ data }: CardProps) => {
 
           <Modal.Action
             disabled={!isConnected || chain.id !== 1}
-            onClick={() => handleSubmit(onSubmit)()}
+            onClick={() => {
+              signMessage({
+                message,
+              });
+            }}
           >
             {"Place a bid"}
           </Modal.Action>

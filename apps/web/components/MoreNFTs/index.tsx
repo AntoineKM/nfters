@@ -13,12 +13,15 @@ const MoreNFTs: React.FC = () => {
   const [cursor, setCursor] = React.useState<number>(0);
   const [currentCategory, setCurrentCategory] = React.useState<string>("all");
 
-  const { data } = useSWR(
+  const { data, mutate } = useSWR(
     `${endpoint}/auctions?limit=${limit}${cursor ? `&cursor=${cursor}` : ""}${
       currentCategory !== "all" ? `&category=${currentCategory}` : ""
     }`,
     fetcher
-  ) as { data: { auctions: Auction[]; cursor: number | undefined } };
+  ) as {
+    data: { auctions: Auction[]; cursor: number | undefined };
+    mutate: () => void;
+  };
 
   const { data: auctionsCategories } = useSWR(
     `${endpoint}/auctions/categories`,
@@ -79,7 +82,7 @@ const MoreNFTs: React.FC = () => {
           {auctions &&
             auctions.length > 0 &&
             auctions.map((auction) => {
-              return <Card key={auction._id} data={auction} />;
+              return <Card key={auction._id} data={auction} mutate={mutate} />;
             })}
         </Cards>
         {data?.cursor && (
